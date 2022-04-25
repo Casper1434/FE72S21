@@ -34,7 +34,7 @@ app.use(
   })
 )
 
-const proxy = createProxyMiddleware([config.frontend_url, '!/pow'], {
+const proxy = createProxyMiddleware(['**', '!/pow'], {
   target: config.backend_url,
   changeOrigin: true,
   ws: true,
