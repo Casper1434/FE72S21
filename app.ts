@@ -38,6 +38,11 @@ const proxy = createProxyMiddleware([config.frontend_url, '!/pow'], {
   target: config.backend_url,
   changeOrigin: true,
   ws: true,
+},
+router: {
+  // when request.headers.host == 'dev.localhost:3000',
+  // override target 'http://www.example.org' to 'http://localhost:8000'
+  config.frontend_url: 'localhost:3000'
 })
 
 // middlewares
